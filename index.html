@@ -5,9 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typo Generator</title>
     <link rel="stylesheet" href="main.css">
+    <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
     
-    <script type="text/javascript" src="index.js"></script>
+    <!-- Double character typos
+    Typos based on hitting an intended key twice (like "cooding" instead of "coding").
+    
+    Transposed character typos
+    Typos based on transposition errors (like "ocding" instead of "coding").
+    
+    Missed character typos
+    Typos based on a missed key (like "oding" instead of "coding").
+    
+    Wrong key typos
+    Typos based on a user hitting the wrong key that is near the intended key (like "voding" instead of "coding"), only uses characters valid in ascii domain names.   -->
+   
+    <div id="tool" class="typo">
+        <form action="/wp-content/themes/adresults-theme/tools/ajax/typo.php" method="POST">
+            <textarea id="search1" name="words"></textarea>
+            <br>
+            <label>
+                <input class="checkbox" name="options[]" type="checkbox" value="skip"> 
+                Skip letter
+            </label>
+            <br>
+            <label>
+                <input class="checkbox" name="options[]" type="checkbox" value="dubble"> 
+                Double letters
+            </label>
+            <br>
+            <label>
+                <input class="checkbox" name="options[]" type="checkbox" value="reverse"> 
+                Reverse letters
+            </label>
+            <br>
+            <label>
+                <input class="checkbox" name="options[]" type="checkbox" value="misspell"> 
+                Wrong letter
+            </label>
+
+        <div>
+            <input class="submit" type="submit" value="Generate typos">
+        </div>
+
+    </form>
+
+    <div id="return">
+        <fieldset>
+        <div class="field"><label for="result">Possible typos</label><br><textarea id="result"></textarea></div>
+    </fieldset></div>
+    </div>
 </body>
 </html>
