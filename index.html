@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TypoGenerator</title>
     <link rel="stylesheet" href="main.css">
-    <script type="text/javascript" src="index.js"></script>
+
 </head>
 <body>
     
@@ -22,39 +22,44 @@
     Typos based on a user hitting the wrong key that is near the intended key (like "voding" instead of "coding"), only uses characters valid in ascii domain names.   -->
    
     <div id="tool" class="typo">
-        <form action="/wp-content/themes/adresults-theme/tools/ajax/typo.php" method="POST">
-            <textarea id="search1" name="words"></textarea>
+        <form method="POST">
+            <textarea id="search" name="words"></textarea>
             <br>
             <label>
-                <input class="checkbox" name="options[]" type="checkbox" value="skip"> 
+                <input class="checkbox" name="options[]" type="checkbox" id="skip"> 
                 Skip letter
             </label>
             <br>
             <label>
-                <input class="checkbox" name="options[]" type="checkbox" value="dubble"> 
+                <input class="checkbox" name="options[]" type="checkbox" id="double"> 
                 Double letters
             </label>
             <br>
             <label>
-                <input class="checkbox" name="options[]" type="checkbox" value="reverse"> 
+                <input class="checkbox" name="options[]" type="checkbox" id="reverse"> 
                 Reverse letters
             </label>
             <br>
             <label>
-                <input class="checkbox" name="options[]" type="checkbox" value="misspell"> 
+                <input class="checkbox" name="options[]" type="checkbox" id="misspell"> 
                 Wrong letter
             </label>
 
         <div>
-            <input class="submit" type="submit" value="Generate typos">
+            <input class="submit" type="button" value="Generate typos" onclick="generateTypos()">
         </div>
-
     </form>
 
     <div id="return">
         <fieldset>
-        <div class="field"><label for="result">Possible typos</label><br><textarea id="result"></textarea></div>
+        <div class="field">
+            <label for="result">Possible typos</label>
+            <br>
+            <textarea id="result"></textarea>
+        </div>
     </fieldset></div>
     </div>
+
+    <script type="text/javascript" src="index.js"></script>
 </body>
 </html>
