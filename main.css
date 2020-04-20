@@ -1,0 +1,20 @@
+fieldset
+{
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.field{
+    height: 200px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#result
+{
+    width: 100%;
+
+    flex: 1 0;
+}
