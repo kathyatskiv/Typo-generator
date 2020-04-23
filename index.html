@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TypoGenerator</title>
     <link rel="stylesheet" href="main.css">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
     
-    <!-- Double character typos
+    <!-- 
+    Double character typos
     Typos based on hitting an intended key twice (like "cooding" instead of "coding").
     
     Transposed character typos
@@ -19,47 +20,78 @@
     Typos based on a missed key (like "oding" instead of "coding").
     
     Wrong key typos
-    Typos based on a user hitting the wrong key that is near the intended key (like "voding" instead of "coding"), only uses characters valid in ascii domain names.   -->
-   
-    <div id="tool" class="typo">
-        <form method="POST">
-            <textarea id="search" name="words"></textarea>
-            <br>
-            <label>
-                <input class="checkbox" name="options[]" type="checkbox" id="skip"> 
-                Skip letter
-            </label>
-            <br>
-            <label>
-                <input class="checkbox" name="options[]" type="checkbox" id="double"> 
-                Double letters
-            </label>
-            <br>
-            <label>
-                <input class="checkbox" name="options[]" type="checkbox" id="reverse"> 
-                Reverse letters
-            </label>
-            <br>
-            <label>
-                <input class="checkbox" name="options[]" type="checkbox" id="misspell"> 
-                Wrong letter
-            </label>
+    Typos based on a user hitting the wrong key that is near the intended key (like "voding" instead of "coding"), only uses characters valid in ascii domain names.   
+-->
+<div class="container ">
 
-        <div>
-            <input class="submit" type="button" value="Generate typos" onclick="generateTypos()">
-        </div>
-    </form>
+    <div class="toll">
 
-    <br><br>
-    <div id="return">
-        <fieldset>
-        <div class="field">
-            <label for="result">Possible typos</label>
-            <textarea id="result"></textarea>
+        <div class="row" style="margin-top:5px;">
+            <div class="input-group col-xs-12">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Typos</span> 
+                </div>
+                <textarea id="search" aria-label="Add Description 2 here" class="form-control input ng-pristine ng-valid" type="text" ng-model="ad.description2"></textarea>
+                <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="generateTypos()">Generate typos</button>
+            </div>
         </div>
-    </fieldset></div>
+    
+        <div class="row" style="margin-top:10px;">
+            <div class="col-xs-12">
+                <div class="checkbox" style="margin-bottom:0px;">
+                    <label>
+                        <input id="skip" type="checkbox" id="checkSlinkTool" ng-model="ad.features.showSitelinkExt" class="ng-pristine ng-valid">
+                        Skip letter
+                    </label>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="checkbox" style="margin-bottom:0px;">
+                    <label>
+                        <input id="double" type="checkbox" id="checkSlinkTool" ng-model="ad.features.showSitelinkExt" class="ng-pristine ng-valid">
+                        Double letters
+                    </label>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="checkbox" style="margin-bottom:0px;">
+                    <label>
+                        <input id="reverse" type="checkbox" id="checkSlinkTool" ng-model="ad.features.showSitelinkExt" class="ng-pristine ng-valid">
+                        Reverse letters
+                    </label>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="checkbox" style="margin-bottom:0px;">
+                    <label>
+                        <input id="misspell" type="checkbox" id="checkSlinkTool" ng-model="ad.features.showSitelinkExt" class="ng-pristine ng-valid">
+                        Wrong letter
+                    </label>
+                </div>
+            </div>
+        </div>
+            
+        <div id="return" class="row" style="height: 200px;">
+            <div class="input-group col-xs-12">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Possible typos</span> 
+                </div>
+                
+                <textarea id="result" class="form-control input ng-pristine ng-valid"></textarea>
+            </div>
+        </div>
     </div>
-
-    <script type="text/javascript" src="index.js"></script>
+</div>
+ 
+<script type="text/javascript" src="index.js"></script>
 </body>
 </html>
